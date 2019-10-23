@@ -3,7 +3,8 @@ This command-line application dynamically generates a PDF profile from a GitHub 
 
 ## Getting Started
 All of the files can be loaded with your Git terminal. Copy the files to your local directory and type 
-		node index.js.
+
+    node index.js.
 
 ### Prerequisites
   * Git terminal
