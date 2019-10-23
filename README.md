@@ -1,97 +1,62 @@
-# Unit 09 Node.js and ES6+ Homework: Developer Profile Generator
+# Developer Profile Generator
+This command-line application dynamically generates a PDF profile from a GitHub username.
 
-Create a command-line application that dynamically generates a PDF profile from a GitHub username. The application will be invoked with the following command:
+## Getting Started
+All of the files can be loaded with your Git terminal. Copy the files to your local directory and type 
+		node index.js.
 
-```sh
-node index.js
-```
+### Prerequisites
+  * Git terminal
+  * Node
 
-The user will be prompted for a favorite color, which will be used as the background color for cards.
 
-The PDF will be populated with the following:
+### Installing
+    1. Go to https://github.com/ruthtech/profile-generator and click on the "Clone or Download" button. 
+    2. Choose "Download ZIP". 
+    3. Unzip into a directory. If you're on Windows, open File Explorer and navigate to the download directory. Select the ZIP file, right click, and choose "Extract All". Accept the default location.
+    4. Once the file is unzipped, navigate to profile-generator-master and use your Git terminal to execute index.js. 
 
-* Profile image
-* User name
-* Links to the following:
-  * User location via Google Maps
-  * User GitHub profile
-  * User blog
-* User bio
-* Number of public repositories
-* Number of followers
-* Number of GitHub stars
-* Number of users following
 
-Following the [common templates for user stories](https://en.wikipedia.org/wiki/User_story#Common_templates), we can frame this challenge as follows:
+## Running the tests
+No automated test suite has been created for these files.
 
-```
-AS A product manager
+### Manual tests
 
-I WANT a developer profile generator
 
-SO THAT I can easily prepare reports for stakeholders
-```
 
-Refer to the [design mockup](./Assets/09-NodeJS-homework-demo.pdf).
 
-## Business Context
+## Deployment
+To deploy this on a live system, copy all of the files to your computer . 
 
-When preparing a report for stakeholders, it is important to have up-to-date information about members of the development team. Rather than navigating to each team member's GitHub profile, a command-line application will allow for quick and easy generation of profiles in PDF format.
+To view this on a live system, go to https://ruthtech.github.io/profile-generator/.
 
-## Minimum Requirements
+## Built With
+* [Visual Studio Code] https://code.visualstudio.com/docs/setup/setup-overview
+* [Visual Studio Code Extension "Open in Browser"] 
+    * Open VS Code.
+    * Open the extensions pane and search for open in browser.
+    * Select the version written by TechER and click Install.
+* Eclipse (https://www.eclipse.org/downloads/)
+    * An IDE alternative to Visual Studio Code
+* Git Terminal (https://git-scm.com/downloads)
+* Node (https://nodejs.org/en/download/)
 
-* Functional, deployed application.
+## Contributing
+This project is not open to contributions.
 
-* GitHub repository with a unique name and a README describing project.
+## Versioning
+This project does not use versions at this time. 
 
-* The application generates a PDF resume from the user provided GitHub profile.
+## Authors
+Ruth Lee
 
-* The generated resume includes a bio image from the user's GitHub profile.
+## License
+MIT
 
-* The generated resume includes the user's location and a link to their GitHub profile.
+## Acknowledgments
+Thanks to the following:
+* U of T Coding Bootcamp (https://bootcamp.learn.utoronto.ca/coding/)
+* Eclipse (https://www.eclipse.org/downloads/)
+* Node (https://nodejs.org/en/download/)
 
-* The generated resume includes the number of: public repositories, followers, GitHub stars and following count.
 
-* The background color of the generated PDF matches the color that the user provides.
-
-```
-GIVEN the developer has a GitHub profile
-
-WHEN prompted for the developer's GitHub username and favorite color
-
-THEN a PDF profile is generated
-```
-- - -
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your code base in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have more than 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* An animated GIF demonstrating the app functionality
-
-* A generated PDF of your GitHub profile
-
-* The URL of the GitHub repository
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
