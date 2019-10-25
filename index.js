@@ -183,7 +183,7 @@ const colors = {
 
 
 class GitHubProfile {
-	constructor(username, colour, data) {
+	constructor(username, colour, data, count) {
 		this.username = username; // could be prompted for the user. For now it's hard coded.
 		this.color = colour; // prompted from the user. Named in the way that generateHTML expects it.
 		
@@ -196,7 +196,7 @@ class GitHubProfile {
 		this.bio = data.bio; // null (and it is)
 		this.blog = data.blog; // http://www.github.com/blog
 		this.profileUrl = data.html_url; // https://github.com/octocat
-		this.stars = data.starred_url; // https://api.github.com/users/octocat/starred{/owner}{/repo}
+		this.stars = count;
 	}
 	
 	getFileName() {
@@ -209,7 +209,8 @@ class GitHubProfile {
 		let htmlFile = this.getFileName()+".html";
 		console.log(`Generating ${htmlFile}...`);
 		
-		let startHTML = generateHTML(this);
+		let startHTML = "";
+		startHTML += generateHTML(this);
 		startHTML += `
 </style>
 </head>
@@ -244,7 +245,7 @@ class GitHubProfile {
 			<div class="col">
 				<div class="card">
 					<h4>GitHub Stars</h4>
-					<p>$(this.stars}</p>
+					<p>${this.stars}</p>
 				</div>
 			</div>
 			<div class="col">
@@ -291,9 +292,21 @@ inquirer
 			console.log(usernameUrl);
 			console.log("REQUEST SUCCESSFUL");
 			
-			
-			generatePDF(new GitHubProfile(username, colour, request.data));
+			let data = request.data;
+			let url = data.starred_url.replace('{/owner}{/repo}', '');
+			axios.get(url)
+			.then(function(request) {
+				let count = 0;
+				let allStarredRepos = request.data;
+				for(const repo of allStarredRepos) {
+					count += repo.stargazers_count;
+				}
+				generatePDF(new GitHubProfile(username, colour, data, count));
 
+			}).catch(function (res) {
+				console.log(res);
+				console.log(`${url}. AN ERROR OCCURRED. LOOK AT THE RESPONSE ABOVE.`);
+			});
 	}).catch(function (res) {
 		console.log(res);
 		console.log(`${usernameUrl}. AN ERROR OCCURRED. LOOK AT THE RESPONSE ABOVE.`);
