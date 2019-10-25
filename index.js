@@ -4,8 +4,6 @@ const inquirer = require("inquirer");
 const htmlpdf = require("html-pdf");
 const generateHTML = require('./generateHTML');
 
-
-
 class GitHubProfile {
 	constructor(username, colour, data, count) {
 		this.username = username; // could be prompted for the user. For now it's hard coded.
@@ -102,13 +100,23 @@ function generatePDF( profile ) {
 
 
 inquirer
-.prompt({
-	type: "input",
-	message: "Enter your favourite colour:",
-	name: "colour"
-})
-.then(function({ colour }) { // when this is "colour" instead of "{ colour }" then console.log(colour) prints { colour: 'blue' }
-	const username = 'ruthtech';
+   .prompt([
+	{
+	   type: "input",
+	   message: "Enter your favourite colour:",
+	   name: "colour"
+   },
+   {
+	   type: "input",
+	   message: "Enter the GitHub user name to generate",
+	   name: "username"
+   }
+])
+.then(function( response ) { // when this is "colour" instead of "{ colour }" then console.log(colour) prints { colour: 'blue' }
+	const username = response.username;
+	const colour = response.colour;
+	console.log(response);
+	
 	const usernameUrl = `https://api.github.com/users/${username}`; // returns a JSON object. Then parse that object with the attrib below.
 		
 	axios.get(usernameUrl)
