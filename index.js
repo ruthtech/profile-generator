@@ -29,7 +29,7 @@ class GitHubProfile {
 	generateContent() {
 		// construct the HTML file for the PDF generator to parse.
 		let htmlFile = this.getFileName()+".html";
-		console.log(`Generating ${htmlFile}...`);
+		console.log(`Generating ${htmlFile} as input to the PDF file...`);
 		
 		let startHTML = "";
 		startHTML += generateHTML(this);
@@ -95,7 +95,7 @@ function generatePDF( profile ) {
 	  if (err) return console.log(err);
 	});
 	
-	console.log("Generation ended. ");
+	console.log("Generation of PDF file successful. ");
 }
 
 
@@ -103,7 +103,7 @@ inquirer
    .prompt([
 	{
 	   type: "input",
-	   message: "Enter your favourite colour:",
+	   message: "Enter your favourite colour (green, blue, pink, or red):",
 	   name: "colour"
    },
    {
@@ -114,15 +114,21 @@ inquirer
 ])
 .then(function( response ) { // when this is "colour" instead of "{ colour }" then console.log(colour) prints { colour: 'blue' }
 	const username = response.username;
-	const colour = response.colour;
-	console.log(response);
+	let colour = response.colour;
+	// Since the colour choices are exported from another module, we are not going to change that module.
+	// Instead, work to convert to an acceptable default.
+	if((colour != 'blue') && (colour != 'green') && (colour != 'pink') && (colour != 'red')) {
+		// Change the colour to one of the known colours.
+		console.log(`Unknown colour ${colour}. Changing to red.`);
+		colour = "red";
+	}
 	
 	const usernameUrl = `https://api.github.com/users/${username}`; // returns a JSON object. Then parse that object with the attrib below.
 		
 	axios.get(usernameUrl)
 	.then(function(request) {
-			console.log(usernameUrl);
-			console.log("REQUEST SUCCESSFUL");
+			// Don't need to check if the user is found or not because if they're not then a 404 error is thrown
+			console.log(`${usernameUrl} REQUEST SUCCESSFUL`);
 			
 			let data = request.data;
 			let url = data.starred_url.replace('{/owner}{/repo}', '');
