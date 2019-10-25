@@ -35,9 +35,8 @@ No automated test suite has been created for these files.
 
 
 ## Deployment
-To deploy this on a live system, copy all of the files to your computer . 
-
-To view this on a live system, go to https://ruthtech.github.io/profile-generator/.
+To deploy this on a live system, copy all of the files to your computer. This is a command-line 
+tool, not one that runs in the browser. There are no live pages to demonstrate. 
 
 ## Built With
 * [Visual Studio Code] https://code.visualstudio.com/docs/setup/setup-overview
@@ -78,5 +77,10 @@ Thanks to the following:
      * inqiurer
      * axios
      * html-pdf
-   
+* Git Terminal (https://git-scm.com/downloads)
+* Icons:
+       * blog icon from https://pngtree.com/so/blog-icon
+       * gitHub icon from https://github.com/logos
+       * location icon from https://www.iconsdb.com/red-icons/location-icon.html
+       
 

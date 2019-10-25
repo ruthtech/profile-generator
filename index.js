@@ -147,7 +147,7 @@ inquirer
 			});
 	}).catch(function (res) {
 		console.log(res.err);
-		console.log(`${usernameUrl}. AN ERROR OCCURRED. Check user name spelling and try again.`);
+		console.log(`${usernameUrl}. AN ERROR OCCURRED. Check the spelling of the user name and try again.`);
 	});
 });
 
