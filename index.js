@@ -146,8 +146,8 @@ inquirer
 				console.log(`${url}. AN ERROR OCCURRED. LOOK AT THE RESPONSE ABOVE.`);
 			});
 	}).catch(function (res) {
-		console.log(res);
-		console.log(`${usernameUrl}. AN ERROR OCCURRED. LOOK AT THE RESPONSE ABOVE.`);
+		console.log(res.err);
+		console.log(`${usernameUrl}. AN ERROR OCCURRED. Check user name spelling and try again.`);
 	});
 });
 

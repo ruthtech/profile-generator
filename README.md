@@ -27,8 +27,11 @@ All of the files can be loaded with your Git terminal. Copy the files to your lo
 No automated test suite has been created for these files.
 
 ### Manual tests
-
-
+1. Enter a colour that's supported
+2. Enter a colour that's unsupported
+3. Enter a name that can be looked up (e.g. octocat)
+4. Enter a name that doesn't exist (e.g. unljwefsdfsdagsergsef)
+5. Regenerate the same user name with a different colour, see that it's generated. 
 
 
 ## Deployment
