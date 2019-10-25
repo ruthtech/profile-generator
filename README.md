@@ -17,7 +17,6 @@ All of the files can be loaded with your Git terminal. Copy the files to your lo
     3. Unzip into a directory. If you're on Windows, open File Explorer and navigate to the download directory. Select the ZIP file, right click, and choose "Extract All". Accept the default location.
     4. Once the file is unzipped, navigate to profile-generator-master.
     5. If you don't have the prerequisites installed, type the following:
-       * npm init (accept the defaults)
        * npm install inqiurer
        * npm install axios
        * npm install html-pdf
